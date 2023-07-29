@@ -1,0 +1,22 @@
+body{
+    background-color: darkcyan;
+    padding: 50px;
+    main{
+        h1{
+            font-size: 50px;
+            color: #fff;
+            font-family: Lugrasimo;
+        }
+        .mainMenu{
+            margin-top: 50px;
+            li{
+                margin-bottom: 20px;
+                a{
+                    font-size: 25px;
+                    color: #fff;
+                    font-family: Lugrasimo;
+                }
+            }
+        }
+    }
+}
