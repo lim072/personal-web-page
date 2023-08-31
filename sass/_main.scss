@@ -27,12 +27,12 @@ body{
         }
 
         .mainPic{
-          
+            width: 100vw;
+            height: 100vh;
 
             img{
                 width: 100%;
-                height: auto;
-                position: absolute;
+                position: fixed;
                 bottom: 0;
                 right: 0;
                 opacity: 0.2;
