@@ -21,12 +21,12 @@ body {
   overflow: hidden;
 }
 body .menuBtn {
-  position: absolute;
+  position: fixed;
   top: 40px;
   left: 75px;
   width: 40px;
   height: 20px;
-  z-index: 100;
+  z-index: 200;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -90,16 +90,7 @@ body .back .stars span:nth-of-type(even) {
   background-color: #f0fa95;
   box-shadow: 0 0 0 10px rgba(241, 245, 184, 0.2666666667), 0 0 50px #f0fa95, 0 0 100px #f0fa95;
 }
-
-@keyframes bubleAni {
-  0% {
-    transform: translateY(100vh) scale(0);
-  }
-  100% {
-    transform: translateY(-10vh) scale(1);
-  }
-}
-main {
+body main {
   position: absolute;
   top: 0;
   left: 0;
@@ -107,7 +98,7 @@ main {
   height: 100vh;
   perspective: 700px;
 }
-main .menu {
+body main .menu {
   position: relative;
   width: 180px;
   height: 100%;
@@ -119,7 +110,11 @@ main .menu {
   transition: 1.5s;
   z-index: 2;
 }
-main .menu span {
+body main .menu .close {
+  width: 30px;
+  height: 30px;
+}
+body main .menu .close span {
   display: block;
   position: relative;
   left: 130px;
@@ -132,7 +127,7 @@ main .menu span {
   transition: 0.4s;
   cursor: pointer;
 }
-main .menu span::after {
+body main .menu .close span::after {
   display: block;
   content: "";
   position: relative;
@@ -144,49 +139,38 @@ main .menu span::after {
   top: 0px;
   transform: rotate(-90deg);
 }
-main .menu span:hover {
+body main .menu .close:hover span {
   transform: rotate(-135deg);
 }
-main .menu ul {
+body main .menu ul {
   position: relative;
   top: 180px;
   left: 20px;
 }
-main .menu ul li {
+body main .menu ul li {
   margin-bottom: 40px;
 }
-main .menu ul li a {
+body main .menu ul li a {
   display: block;
   font-size: 16px;
   color: #ddd;
   font-family: Lugrasimo;
-  text-shadow: 0px 0px 4px #a0a743;
+  text-shadow: 0px 0px 4px #a5e76f;
   transition: 0.3s;
 }
-main .menu ul li a:hover {
+body main .menu ul li a:hover {
   transform: scale(0.95);
   color: #888;
 }
-main .mainPic {
-  width: 100vw;
-  height: 100vh;
-}
-main .mainPic img {
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  opacity: 0.2;
-}
-main .mainPic video {
-  width: 100%;
-  height: auto;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  opacity: 0.2;
-}
 
+@keyframes bubleAni {
+  0% {
+    transform: translateY(100vh) scale(0);
+  }
+  100% {
+    transform: translateY(-10vh) scale(1);
+  }
+}
 .mainVisual {
   position: absolute;
   top: 0;
@@ -197,6 +181,11 @@ main .mainPic video {
   background-color: none;
   transform: rotateY(0deg);
   transform-origin: right center;
+  transition: 1.5s;
+}
+.mainVisual .on {
+  z-index: 99;
+  opacity: 1;
 }
 .mainVisual section {
   position: absolute;
@@ -204,6 +193,18 @@ main .mainPic video {
   left: 0;
   width: 100%;
   height: 100%;
+  opacity: 0;
+  transition: 2s;
+}
+.mainVisual section h2 {
+  font-size: 40px;
+  color: #ddd;
+  font-family: Lugrasimo;
+  text-shadow: 0px 0px 4px #a0a743;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .home h1 {
@@ -227,6 +228,81 @@ main .mainPic video {
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
+}
+.home .svgBox {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  display: flex;
+  gap: 100px;
+}
+.home .svgBox article {
+  width: 200px;
+  height: 200px;
+  position: relative;
+}
+.home .svgBox article svg {
+  width: 70%;
+  height: 70%;
+}
+.home .svgBox article svg path {
+  fill: none;
+  stroke: rgb(250, 250, 238);
+  stroke-width: 2px;
+  stroke-dasharray: 2085;
+  stroke-dashoffset: 0;
+  animation: starAni 10s alternate infinite;
+  transform-origin: center center;
+}
+.home .svgBox .star1 {
+  top: -100px;
+}
+.home .svgBox .star1 svg path {
+  stroke-width: 5px;
+}
+.home .svgBox .star2 {
+  top: 10px;
+}
+.home .svgBox .star2 svg path {
+  stroke-width: 3px;
+  animation: starAni2 7s alternate infinite;
+}
+.home .svgBox .star3 {
+  top: -50px;
+}
+.home .svgBox .star3 svg path {
+  stroke: rgb(205, 235, 248);
+  stroke-width: 4px;
+  stroke-dasharray: 2700;
+}
+.home .svgBox .moon {
+  top: -200px;
+}
+.home .svgBox .moon svg path {
+  stroke-width: 12px;
+  stroke: rgb(248, 248, 205);
+  animation: starAni2 7s alternate infinite;
+}
+
+@keyframes starAni {
+  0% {
+    stroke-dashoffset: 2800;
+    transform: rotateZ(360deg);
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes starAni2 {
+  0% {
+    stroke-dashoffset: 2800;
+    transform: rotateZ(-360deg);
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,97 +1,187 @@
-main{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        perspective: 700px;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+}
+li,ul{
+    list-style: none;
+}
+body{
+  background:#0c192c;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  
+  .menuBtn{
+    position: fixed;
+    top: 40px;
+    left: 75px;
+    width: 40px;
+    height: 20px;
+    z-index: 200;
+    cursor: pointer;
+    transition: 0.3s;
+    
+    span{
+      display: block;
+      width: 40px;
+      height: 4px;
+      border-radius: 25px;
+      background-color: #fff;
+      box-shadow: 0 0 0 1px #585858;
+   
+      &::before,&::after{
+          display: block;
+          content: '';
+          position: relative;
+          width: 40px;
+          height: 4px;
+          border-radius: 25px;
+          background-color: #fff;
+          box-shadow: 0 0 0 1px #585858;
+          transition: 0.2s;
+      }
+      &::before{
+          top: -8px;
+      }
+      &::after{
+          top: 4px;
+      }
+    }
+    &:hover{
+      span{
+        &::before{
+          top: 0px;
+          transform: rotate(45deg);
+        }
+        &::after{
+          top: -5px;
+          transform: rotate(-45deg);
+        }
+     }
+    }
+  }
 
-        .menu{
-            position: relative;
-            width: 180px;
-            height: 100%;
-            transform: rotateY(-90deg);
-            transform-origin: left center;
-            background-color: rgba(255, 255, 255, 0.07);
-            border: 1px solid rgba(97, 97, 97, 0.5);
-            backdrop-filter: blur(10px);
-            transition: 1.5s;
-            z-index: 2;
-                
-                span{
-                  display: block;
-                  position: relative;
-                  left: 130px;
-                  top: 30px;
-                  width: 30px;
-                  height: 3px;
-                  border-radius: 25px;
-                  background-color: #fff;
-                  transform: rotate(-45deg);
-                  transition: 0.4s;
-                  cursor: pointer;
+  .back{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    .stars{
+      position: relative;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap:wrap-reverse;
 
-                  &::after{
-                      display: block;
-                      content: '';
-                      position: relative;
-                      width: 30px;
-                      height: 3px;
-                      border-radius: 25px;
-                      background-color: #fff;
-                      transition: 0.2s;
-                      top: 0px;
-                      transform: rotate(-90deg);
-                  }
-                  &:hover{
-                    transform: rotate(-135deg);
-                    }
-                }
-              
+      span{
+        position: relative;
+        width: 20px;
+        height: 20px;
+        background-color: #4fc3dc;
+        margin: 0 4px;
+        border-radius: 50%;
+        box-shadow: 0 0 0 10px #4fc3dc44, 0 0 50px #4fc3dc, 0 0 100px #4fc3dc;
+        animation: bubleAni 15s linear infinite;
+        animation-duration: calc(250s / var(--i) );
+        opacity: 0.5;
 
-            ul{
+        &:nth-of-type(even){
+          background-color: #f0fa95;
+          box-shadow: 0 0 0 10px #f1f5b844, 0 0 50px #f0fa95, 0 0 100px #f0fa95;
+        }
+      }
+    }
+  }
+  main{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    perspective: 700px;
+
+    .menu{
+        position: relative;
+        width: 180px;
+        height: 100%;
+        transform: rotateY(-90deg);
+        transform-origin: left center;
+        background-color: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(97, 97, 97, 0.5);
+        backdrop-filter: blur(10px);
+        transition: 1.5s;
+        z-index: 2;
+            .close{
+              width: 30px;
+              height: 30px;
+              span{
+                display: block;
                 position: relative;
-                top: 180px;
-                left: 20px;
-                li{
-                    margin-bottom: 40px;
-                    a{
-                        display: block;
-                        font-size: 16px;
-                        color: #ddd;
-                        font-family: Lugrasimo;
-                        text-shadow: 0px 0px 4px #a0a743;
-                        transition: 0.3s;
-                        &:hover{
-                           transform: scale(0.95);
-                           color: #888;
-                        }
+                left: 130px;
+                top: 30px;
+                width: 30px;
+                height: 3px;
+                border-radius: 25px;
+                background-color: #fff;
+                transform: rotate(-45deg);
+                transition: 0.4s;
+                cursor: pointer;
 
+                &::after{
+                    display: block;
+                    content: '';
+                    position: relative;
+                    width: 30px;
+                    height: 3px;
+                    border-radius: 25px;
+                    background-color: #fff;
+                    transition: 0.2s;
+                    top: 0px;
+                    transform: rotate(-90deg);
+                }
+               
+              }
+              &:hover{
+                span{
+                transform: rotate(-135deg);
+                }
+              }
+            }
+          
+
+        ul{
+            position: relative;
+            top: 180px;
+            left: 20px;
+            li{
+                margin-bottom: 40px;
+                a{
+                    display: block;
+                    font-size: 16px;
+                    color: #ddd;
+                    font-family: Lugrasimo;
+                    text-shadow: 0px 0px 4px #a5e76f;
+                    transition: 0.3s;
+                    &:hover{
+                       transform: scale(0.95);
+                       color: #888;
                     }
 
                 }
+
             }
         }
+    }
+}
+}
 
-        .mainPic{
-            width: 100vw;
-            height: 100vh;
-
-            img{
-                width: 100%;
-                position: fixed;
-                bottom: 0;
-                right: 0;
-                opacity: 0.2;
-                }
-            video{
-                width: 100%;
-                height: auto;
-                position: absolute;
-                bottom: 0;
-                right: 0;
-                opacity: 0.2;
-            }
-            
-        }
+@keyframes bubleAni{
+  0%{
+    transform: translateY(100vh) scale(0);
+  }
+  100%{
+    transform: translateY(-10vh) scale(1); 
+  }
 }
