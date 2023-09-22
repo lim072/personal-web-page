@@ -5,20 +5,33 @@
         padding: 200px 100px 50px 100px; 
         display: flex;
         gap: 50px;
+        
         li{
-            background-color: rgba(179, 179, 179, 0.4);
+            background: linear-gradient( rgba(178, 246, 255, 0.4), rgba(255, 255, 255, 0.4));
             width: calc(100% / 3);
             height: 300px;
             position: relative;
-            border-radius: 20px;
+            border-radius: 40px;
             border: solid 2px rgba(179, 179, 179, 0.7);
             box-shadow: 0 0 20px rgba(197, 143, 143, 0.4);
-
+            text-align: center;
+            
             &:nth-of-type(2){
                 top: 150px;
             }
             &:nth-of-type(3){
                 top: 300px;
+            }
+            h3{
+                font: 20px/1 EB Garamond;
+                margin: 40px;
+                color: #ddd;
+                letter-spacing: 7px;
+            }
+            p{
+                font: 14px/2 Nanum Myeongjo;
+                color: #bbb;
+                letter-spacing: 2px;
             }
         }
     }

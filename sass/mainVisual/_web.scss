@@ -1,3 +1,211 @@
 .web{
+    article{
+        width: 24vw;
+        height: 580px;
+        overflow: hidden;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        margin-top: -25vh;
+        margin-left: -12vw;
+        transition: 0.5s;
+        background-color: rgba(195, 248, 255, 0.2);
+        .textBox{
+            width: 100%;
+            height: 35%;
+            text-align: center;
+            h3{
+                margin: 10px;
+                font: bold 25px/1 EB Garamond;
+                color: #ddd;
+                transition: 0.5s;
+                letter-spacing: 4px;
+            }
+            span{
+                display: block;
+                margin: 20px;
+                font: 16px/1 EB Garamond;
+                color: #bbb;
+                transition: 0.5s;
+            }
+            p{
+                text-align: left;
+                padding: 20px;
+                font: 14px/2 Nanum Myeongjo;
+                letter-spacing: 2px;
+                color: #bbb;
+                transition: 0.5s;
+            }
+        }
+        .pic{
+            position: relative;
+            width: 100%;
+            height: 50%;
+            overflow: hidden;
+            border-radius: 5px;
+            transition: 0.5s;
+            text-align: center;
+            span{
+                display: block;
+                font: bold 16px/1 EB Garamond;
+                color: #bbb;
+                letter-spacing: 10px;
+                margin-bottom: 5px;
+                transition: 0.2s;
+            }
+            .picBox{
+                display: flex;
+                padding: 10px;
+                flex-wrap: wrap;
 
+                .picBox1,.picBox2,.picBox3,.picBox4{
+                    padding: 5px;
+                    width: 50%;
+                    height: 50%;
+                    overflow: hidden;
+                    
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        opacity: 0.1;
+                        transition: 0.5s;
+                    }
+                }
+            }
+        }
+        &:nth-of-type(1) {
+            transform: translateX(-130%) translateY(40%);
+            opacity: 0.5;
+            box-shadow: 0px 0px 10px rgba(145, 152, 248, 0.5);
+        }
+        &:nth-of-type(2){
+            box-shadow: 0px 0px 40px rgba(75, 197, 235, 0.5);
+            border: 1px solid rgba(200, 242, 255, 0.2);
+                .textBox{
+                    h3{
+                        text-shadow: 0 0 10px skyblue;
+                    }
+                    span{
+                        text-shadow: 0 0 10px skyblue;
+                    }
+                    p{
+                        text-shadow: 0 0 10px skyblue;
+                    }
+                }
+                .pic{
+                    padding: 10px;
+                    span{
+                        text-shadow: 0 0 10px skyblue;
+                    }
+                    .picBox{
+                        overflow: hidden;
+                        .picBox1,.picBox2,.picBox3,.picBox4{
+                            img{
+                            filter:brightness(0.5);
+                            opacity: 0.9;
+                            }
+                        }
+                    }
+                }
+                &:hover{
+                    .pic{
+                        span{
+                            font: bold 20px/1 EB Garamond;
+                        }
+                        .picBox1,.picBox2,.picBox3,.picBox4{
+                            img{
+                            filter:brightness(0.9);
+                            }
+                        }
+                    }
+                }
+            
+        }
+        &:nth-of-type(3){
+            transform: translateX(130%) translateY(-40%);
+            opacity: 0.5;
+            box-shadow: 0px 0px 10px rgba(145, 152, 248, 0.5);
+        }
+        &:nth-of-type(4){
+            transform: translateX(400%) translateY(-200%);
+            opacity: 0;
+            box-shadow: 0px 0px 10px rgba(145, 152, 248, 0.5);
+        }
+    }
+    nav {
+        position: absolute;
+        bottom: 10vh;
+        right: 25vw;
+        transition: 0.5s;
+        p {
+            width: 100px;
+            height: 40px;
+            position: relative;
+            color: #fff;
+            cursor: pointer;
+
+            span {
+                font: 12px/1 Lugrasimo;
+                color: #fff;
+                transition: 0.5s;
+                display: inline-block;
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                width: 0%;
+                height: 1px;
+                background-color: #fff;
+                top: 50%;
+                opacity: 1;
+                transition: 0.2s 0.2s;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                width: 0px;
+                height: 1px;
+                background-color: #fff;
+                top: 50%;
+                transition: 0.2s 0s;
+            }
+
+            &.next {
+                text-align: left;
+
+                span {
+                    transform: translateY(-5px);
+                }
+
+                &::before {
+                    left: 0;
+                }
+
+                &::after {
+                    transform-origin: right center;
+                    transform: rotate(30deg);
+                    right: 0;
+                }
+            }
+        }
+
+        p:hover {
+            text-shadow: 0 0 10px rgb(236, 187, 255);
+            &.next{
+                &::before {
+                    width: 100%;
+                    transition: 0.2s;
+                    box-shadow: 0 0 10px 1px rgb(236, 187, 255);
+                }
+
+                &::after {
+                    width: 40px;
+                    transition: 0.2s 0.2s;
+                    box-shadow: 0 0 10px 1px rgb(236, 187, 255)
+                }
+            }
+        }
+    }
 }
